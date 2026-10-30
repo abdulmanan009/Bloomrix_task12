@@ -57,6 +57,7 @@ form.addEventListener("submit", function (event) {
     // Display submitted details in the browser console
     console.log("Registration Details:", user);
 
+    
     // Clear the form
     form.reset();
     confirmPassword.setCustomValidity("");
