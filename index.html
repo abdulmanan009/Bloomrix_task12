@@ -1,66 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Interactive Registration Form</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <main class="container">
+        <h1>Create Your Account</h1>
+        <p class="subtitle">Complete the form to register.</p>
 
-    <div class="container">
-        <h1>Registration Form</h1>
-        <p>Create your account by filling in the details.</p>
+        <form id="registrationForm" novalidate>
+            <div class="field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text"
+                       autocomplete="name" required minlength="3"
+                       aria-describedby="fullNameError">
+                <small class="error" id="fullNameError"></small>
+            </div>
 
-        <form id="registrationForm">
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email"
+                       autocomplete="email" required
+                       aria-describedby="emailError">
+                <small class="error" id="emailError"></small>
+            </div>
 
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName"
-                   placeholder="Enter your full name" required minlength="3">
+            <div class="field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel"
+                       placeholder="03001234567"
+                       pattern="03[0-9]{9}" required
+                       aria-describedby="phoneError">
+                <small class="error" id="phoneError"></small>
+            </div>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email"
-                   placeholder="Enter your email" required>
+            <div class="field">
+                <label for="birthDate">Date of Birth</label>
+                <input id="birthDate" name="birthDate" type="date"
+                       required aria-describedby="birthDateError">
+                <small class="error" id="birthDateError"></small>
+            </div>
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone"
-                   placeholder="03001234567"
-                   pattern="03[0-9]{9}"
-                   title="Enter a valid Pakistani mobile number"
-                   required>
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password"
+                       minlength="8" required autocomplete="new-password"
+                       aria-describedby="passwordError strengthText">
+                <div class="strength-track">
+                    <div id="strengthBar"></div>
+                </div>
+                <small id="strengthText">Password strength: not entered</small>
+                <small class="error" id="passwordError"></small>
+            </div>
 
-            <label for="birthDate">Date of Birth</label>
-            <input type="date" id="birthDate" name="birthDate" required>
+            <div class="field">
+                <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" name="confirmPassword"
+                       type="password" required autocomplete="new-password"
+                       aria-describedby="confirmPasswordError">
+                <small class="error" id="confirmPasswordError"></small>
+            </div>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"
-                   placeholder="Minimum 8 characters" minlength="8" required>
+            <div class="field">
+                <label for="about">About Yourself</label>
+                <textarea id="about" name="about" rows="4"
+                          maxlength="200" placeholder="Tell us about yourself..."
+                          aria-describedby="charCount"></textarea>
+                <small id="charCount">0 / 200 characters</small>
+            </div>
 
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword"
-                   placeholder="Enter password again" required>
+            <section class="field">
+                <label for="skillSelect">Skills and Interests</label>
+                <div class="skill-controls">
+                    <select id="skillSelect">
+                        <option value="">Choose a skill</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="React">React</option>
+                        <option value="C#">C#</option>
+                        <option value="SQL">SQL</option>
+                    </select>
+                    <button type="button" id="addSkill">Add</button>
+                </div>
+                <ul id="skillList" aria-label="Selected skills"></ul>
+                <small id="skillError" class="error"></small>
+            </section>
 
-            <label for="country">Country</label>
-            <select id="country" name="country" required>
-                <option value="">Select your country</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="India">India</option>
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="Other">Other</option>
-            </select>
+            <section class="field">
+                <label for="country">Country</label>
+                <select id="country" name="country" required
+                        aria-describedby="countryError">
+                    <option value="">Select your country</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="India">India</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Other">Other</option>
+                </select>
+                <small class="error" id="countryError"></small>
+            </section>
+
+            <section class="extra-section">
+                <h2>Additional Information</h2>
+
+                <div class="tabs" role="tablist" aria-label="Additional information">
+                    <button type="button" class="tab active"
+                            role="tab" aria-selected="true"
+                            aria-controls="personalPanel" data-tab="personalPanel">
+                        Personal
+                    </button>
+                    <button type="button" class="tab"
+                            role="tab" aria-selected="false"
+                            aria-controls="learningPanel" data-tab="learningPanel">
+                        Learning
+                    </button>
+                </div>
+
+                <div id="personalPanel" class="tab-panel" role="tabpanel">
+                    Keep your account information up to date and use a strong,
+                    unique password.
+                </div>
+                <div id="learningPanel" class="tab-panel" role="tabpanel" hidden>
+                    Select the skills you are learning or interested in developing.
+                </div>
+            </section>
 
             <label class="terms">
                 <input type="checkbox" id="terms" name="terms" required>
                 I agree to the terms and conditions.
             </label>
+            <small id="termsError" class="error"></small>
 
-            <p id="errorMessage" class="error" role="alert"></p>
-            <button type="submit">Create Account</button>
-            <p id="successMessage" class="success" role="status"></p>
+            <div class="form-buttons">
+                <button type="submit" id="submitButton" disabled>
+                    Review Registration
+                </button>
+                <button type="reset" class="secondary">
+                    Reset Form
+                </button>
+            </div>
 
+            <p id="formMessage" role="status" aria-live="polite"></p>
         </form>
-    </div>
+    </main>
 
+    <dialog id="confirmModal" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Confirm Registration</h2>
+        <p id="modalDetails"></p>
+        <p>Do you want to complete this demo registration?</p>
+        <div class="form-buttons">
+            <button type="button" id="confirmSubmit">Confirm</button>
+            <button type="button" id="cancelModal" class="secondary">
+                Go Back
+            </button>
+        </div>
+    </dialog>
+
+    <div id="notification" role="status" aria-live="polite"></div>
 </body>
 </html>
