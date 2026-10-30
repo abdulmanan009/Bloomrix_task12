@@ -1,0 +1,18 @@
+Build the following practical feature using the HTML/CSS learned previously and the JavaScript/jQuery concepts from this day. The assignment should be functional, readable, and tested in the browser.
+
+• Use the registration form created during HTML/CSS training.
+• Validate the form using JavaScript before submission.
+• Show custom error messages beside invalid fields.
+• Add live validation on input or blur events.
+• Show a character counter for a textarea.
+• Add password strength feedback.
+• Add a dynamic list of selected skills/interests.
+• Enable or disable the submit button based on validation status.
+• Create a success message without reloading the page.
+• Add a reset action that clears generated messages and returns the form to its original state.
+• Create at least one modal confirmation using dynamically controlled DOM elements.
+• Add tabs or an accordion to organize additional registration information.
+• Use event delegation for a dynamically generated list or button group.
+• Use dataset attributes for at least one reusable UI component.
+• Use setTimeout or setInterval for a temporary message, countdown, or status indicator.
+• Do not use jQuery yet. Use only Vanilla JavaScript.

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registration Form</h1>
+        <p>Create your account by filling in the details.</p>
+
+        <form id="registrationForm">
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName"
+                   placeholder="Enter your full name" required minlength="3">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="03001234567"
+                   pattern="03[0-9]{9}"
+                   title="Enter a valid Pakistani mobile number"
+                   required>
+
+            <label for="birthDate">Date of Birth</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Minimum 8 characters" minlength="8" required>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword"
+                   placeholder="Enter password again" required>
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="">Select your country</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="India">India</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the terms and conditions.
+            </label>
+
+            <p id="errorMessage" class="error" role="alert"></p>
+            <button type="submit">Create Account</button>
+            <p id="successMessage" class="success" role="status"></p>
+
+        </form>
+    </div>
+
+</body>
+</html>
